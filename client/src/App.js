@@ -8,6 +8,8 @@ import ShoeForm from './components/ShoeForm';
 import LatestShoe from './components/LatestShoe';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
+import Review from './components/Review';
+import SplashPage from './components/SplashPage';
 
 import { Routes, Route} from 'react-router-dom'
 export const AppContext = createContext(null)
@@ -39,6 +41,7 @@ useEffect(() => {
 
 
 
+if (!isAuthenticated) return <SplashPage/>
 
 
 
@@ -52,10 +55,11 @@ useEffect(() => {
         <Route path ='/latestshoe' element ={<LatestShoe/>}/>
         <Route path = '/signup' element = {<SignUp setCurrentUser={setCurrentUser}/>}/>
         <Route path = '/login' element = {<Login setCurrentUser={setCurrentUser}/>}/>
+        <Route path = '/reviews' element = {<Review/>}/>
       </Routes>
       </AppContext.Provider>
 
-      <h1>HELLO MIKAYLA THIS IS THE HOME PAGE</h1>
+      
     </div>
   );
 }
