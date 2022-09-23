@@ -4,11 +4,12 @@ import {useNavigate} from 'react-router-dom'
 
 
 function ShoeCard ({shoe}) {
+    
 
     const navigate = useNavigate()
 
     function handleReviews () {
-        navigate('/reviews')
+        navigate(`/shoes/${shoe.id}`)
     }
 
 

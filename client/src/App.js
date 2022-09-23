@@ -10,6 +10,8 @@ import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Review from './components/Review';
 import SplashPage from './components/SplashPage';
+import ReviewContainer from './components/ReviewContainer';
+import ShoeReview from './components/ShoeReview';
 
 import { Routes, Route} from 'react-router-dom'
 export const AppContext = createContext(null)
@@ -20,6 +22,8 @@ function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [currentUser, setCurrentUser] = useState(null)
+
+  const [reviews, setReviews] = useState([])
 
 useEffect(() => {
   fetch('/shoes').then(r => r.json()).then(data => setShoes(data))
@@ -37,11 +41,20 @@ useEffect(() => {
   })
 }, [])
 
+useEffect (() => {
+  fetch('/reviews').then(r=> r.json()).then((data) => setReviews(data))
+},[])
+
+
+function getReviews () {
+  fetch('/reviews')
+  .then(r => r.json())
+  .then((data) => setReviews(data))
+}
 
 
 
-
-if (!isAuthenticated) return <SplashPage/>
+// if (!isAuthenticated) return <SplashPage/>
 
 
 
@@ -50,12 +63,14 @@ if (!isAuthenticated) return <SplashPage/>
     <div className="App">
       <AppContext.Provider value={{latestPost, setLatestPost}}>
       <Routes>
+        <Route path = "/" element = {<SplashPage/>}/>
         <Route path ='/shoes' element={<ShoeContainer shoes = {shoes} setCurrentUser={setCurrentUser}/> }/>
         <Route path ='/createshoe' element = {<ShoeForm/>}/>
         <Route path ='/latestshoe' element ={<LatestShoe/>}/>
         <Route path = '/signup' element = {<SignUp setCurrentUser={setCurrentUser}/>}/>
         <Route path = '/login' element = {<Login setCurrentUser={setCurrentUser}/>}/>
-        <Route path = '/reviews' element = {<Review/>}/>
+        <Route path = '/reviews' element = {<ReviewContainer reviews = {reviews} getReviews ={getReviews}/>}/>
+        <Route path = '/shoes/:id' element = {<ShoeReview/>}/>
       </Routes>
       </AppContext.Provider>
 

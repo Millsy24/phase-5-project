@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
 
     def index 
-        render json: Review.all, status: :ok
+        reviews = Review.all
+        render json: reviews
     end
 
 

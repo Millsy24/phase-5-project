@@ -4,15 +4,17 @@ import React from 'react'
 
 
 
-    function Review () {
+    function Review ({review}) {
 
 
 
 
         return(
+            <div>
+            <p>{review.rating}</p>
+            <p>{review.content}</p>
 
-
-            <div>This is a review</div>
+            </div>
         )
 
     }
