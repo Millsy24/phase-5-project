@@ -1,13 +1,20 @@
 import React from 'react'
+import ShoeCard from './ShoeCard'
+import NavBar from './NavBar'
 
 
 
+function ShoeContainer ({shoes, setCurrentUser}) {
+    
 
-function ShoeContainer () {
+const renderShoes = shoes.map(shoe => <ShoeCard key = {shoe.id} shoe = {shoe}/>)
 
 
     return(
-        <h1>This is the shoe container</h1>
+        <h1>
+            <NavBar setCurrentUser = {setCurrentUser}/>
+            {renderShoes}
+        </h1>
     )
 
 

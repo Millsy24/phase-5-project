@@ -34,7 +34,7 @@ function ShoeForm () {
         <h1>Create a shoe!</h1>
         <form onSubmit = {(e) => handleSubmit(e)}>
             <label htmlFor="name">Name</label>
-            <input type = "text" name = "title" id = "title"/>
+            <input type = "text" name = "name" id = "title"/>
             <label htmlFor="image">Name</label>
             <input type = "file" name ="image" id ="image"/>
 

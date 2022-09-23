@@ -2,14 +2,23 @@ import React from 'react'
 
 
 
-function ShoeCard () {
+function ShoeCard ({shoe}) {
+
+    console.log(shoe)
 
 
 
 
 
     return(
-        <h1>this is the shoecard</h1>
+        <div>
+            <card>
+                <h1>{shoe.name}</h1>
+                <h2>{shoe.price}</h2>
+                <img src = {shoe.image_url} alt = "shoe"/>
+            </card>
+        
+        </div>
     )
 
 }
