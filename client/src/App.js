@@ -11,7 +11,7 @@ import Login from './components/Login';
 import Review from './components/Review';
 import SplashPage from './components/SplashPage';
 import ReviewContainer from './components/ReviewContainer';
-import ShoeReview from './components/ShoeReview';
+import ShoeReviewCard from './components/ShoeReviewCard';
 
 import { Routes, Route} from 'react-router-dom'
 export const AppContext = createContext(null)
@@ -70,7 +70,7 @@ function getReviews () {
         <Route path = '/signup' element = {<SignUp setCurrentUser={setCurrentUser}/>}/>
         <Route path = '/login' element = {<Login setCurrentUser={setCurrentUser}/>}/>
         <Route path = '/reviews' element = {<ReviewContainer reviews = {reviews} getReviews ={getReviews}/>}/>
-        <Route path = '/shoes/:id' element = {<ShoeReview/>}/>
+        <Route path = '/shoes/:id' element = {<ShoeReviewCard/>}/>
       </Routes>
       </AppContext.Provider>
 
