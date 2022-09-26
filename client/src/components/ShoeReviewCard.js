@@ -7,13 +7,15 @@ import {useEffect, useState} from 'react'
 
 
 
-function ShoeReviewCard ({currentUser, getData}) {
+function ShoeReviewCard ({currentUser}) {
     
     const params = useParams()
 
-    const [shoe, setShoe] = useState([]) 
+    const [shoe, setShoe] = useState({}) 
     const [rating, setRating] =  useState('')
+    
     const [content, setContent] = useState('')
+    
 
     useEffect(()=> {
 		fetch(`/shoes-with-images/${params.id}`)
@@ -25,6 +27,17 @@ function ShoeReviewCard ({currentUser, getData}) {
 				}
 		})
 	},[])
+
+    function fetchShoe() {
+        fetch(`/shoes-with-images/${params.id}`)
+			.then(response => {
+				if(response.ok) {
+					response.json().then(data => setShoe(data))
+					} else {
+					response.json().then(data => console.log(data.errors))
+				}
+		})
+    }
 
 
     function handleRatingChange (e) {
@@ -47,7 +60,7 @@ function ShoeReviewCard ({currentUser, getData}) {
             "user_id": currentUser.id
         }
 
-        fetch('/reviews', {
+        fetch(`/reviews`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -55,18 +68,21 @@ function ShoeReviewCard ({currentUser, getData}) {
             body: JSON.stringify(data)
         })
         .then(r => r.json())
-        .then(newReview => setShoe(newReview))
+        .then(review => fetchShoe(review))
+        
+        
         e.target.reset()
 
 
 
     }
-    
-    
 
+    
+    
+    
+    
     
  
-
 
 
    
@@ -96,7 +112,7 @@ function ShoeReviewCard ({currentUser, getData}) {
                         <div key = {review.id}>
                             <p>Rating: {review.rating}</p>
                             <p>Content: {review.content}</p>
-
+                            <button>Edit Review</button>
                         </div>
                     )
                 })}

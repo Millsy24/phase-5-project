@@ -30,7 +30,9 @@ function App() {
   
 
 useEffect(() => {
-  fetch('/shoes').then(r => r.json()).then(data => setShoes(data))
+  fetch('/shoes')
+  .then(r => r.json())
+  .then(data => setShoes(data))
 }, [])
 
 
@@ -87,7 +89,7 @@ function getReviews () {
         <Route path = '/signup' element = {<SignUp setCurrentUser={setCurrentUser}/>}/>
         <Route path = '/login' element = {<Login setCurrentUser={setCurrentUser}/>}/>
         <Route path = '/reviews' element = {<ReviewContainer reviews = {reviews} getReviews ={getReviews}/>}/>
-        <Route path = '/shoes-with-images/:id' element = {<ShoeReviewCard currentUser = {currentUser} reviews = {reviews} getData = {getData}/>}/>
+        <Route path = '/shoes-with-images/:id' element = {<ShoeReviewCard currentUser = {currentUser} reviews = {reviews} getReviews = {setReviews}/>}/>
         <Route path = '/reviewform' element= {<ReviewForm/>}/>
       </Routes>
       </AppContext.Provider>
