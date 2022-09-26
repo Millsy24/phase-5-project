@@ -2,11 +2,13 @@ import React from "react";
 
 import {AppContext} from "../App"
 import { useContext } from 'react'
+import {useNavigate} from 'react-router-dom'
 
 
 
 function ShoeForm () {
     const {latestPost, setLatestPost} = useContext(AppContext)
+    const navigate = useNavigate()
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -27,6 +29,7 @@ function ShoeForm () {
         .then(r => r.json())
         .then(data => setLatestPost(data))
         .catch((error) => console.log(error))
+        navigate('/shoes')
     }
 
     return(
@@ -37,6 +40,7 @@ function ShoeForm () {
             <input type = "text" name = "name" id = "title"/>
             <label htmlFor="image">Name</label>
             <input type = "file" name ="image" id ="image"/>
+            
 
             <button type ="submit">Create Shoe</button>
         </form>

@@ -38,6 +38,10 @@ function NavBar ({setCurrentUser}) {
         <p className ="Link">
             <Link to="/login">Login</Link>
         </p>
+        <p className ="Link">
+            <Link to="/createshoe">Sell Your Shoes</Link>
+        </p>
+        
     <button onClick = {handleLogout}>Logout</button>
 </div>
 

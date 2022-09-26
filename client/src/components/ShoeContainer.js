@@ -7,7 +7,7 @@ import NavBar from './NavBar'
 function ShoeContainer ({shoes, setCurrentUser}) {
     
     
-const renderShoes = shoes.map(shoe => <ShoeCard key = {shoe.id} shoe = {shoe}/>)
+const renderShoes = shoes?.map(shoe => <ShoeCard key = {shoe.id} shoe = {shoe}/>)
 
 
     return(

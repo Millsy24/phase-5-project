@@ -5,7 +5,7 @@ import ShoeReviewCard from './ShoeReviewCard'
 
 
 
-function ReviewContainer ({reviews, currentUser}) {
+function ReviewContainer ({reviews}) {
     
     const renderReviews = reviews.map(review => <ShoeReviewCard key = {review.id} review = {review}/>)
     

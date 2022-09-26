@@ -1,13 +1,14 @@
 import React from 'react'
 import {useParams} from 'react-router-dom'
 import {useEffect, useState} from 'react'
+import Review from './Review'
 
 
 
 
 
 
-function ShoeReviewCard ({currentUser}) {
+function ShoeReviewCard ({currentUser, reviews}) {
     
     const params = useParams()
 
@@ -82,7 +83,7 @@ function ShoeReviewCard ({currentUser}) {
     
     
     
- 
+ const renderReviews = shoe.reviews?.map(review => <Review key = {review.id} review = {review} fetchShoe = {fetchShoe}/>)
 
 
    
@@ -106,16 +107,8 @@ function ShoeReviewCard ({currentUser}) {
                 </form>
             </div>
 
-            
-                {shoe.reviews?.map(review => {
-                    return(
-                        <div key = {review.id}>
-                            <p>Rating: {review.rating}</p>
-                            <p>Content: {review.content}</p>
-                            <button>Edit Review</button>
-                        </div>
-                    )
-                })}
+            {renderReviews}
+                
                   
             
         </>
