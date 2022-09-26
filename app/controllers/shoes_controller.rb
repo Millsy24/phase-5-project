@@ -29,6 +29,13 @@ class ShoesController < ApplicationController
 
   end
 
+  def single_shoe_with_image
+    shoe = Shoe.find(params[:id])
+    render json: ShoesWithImageSerializer.new(shoe).serializable_hash[:data][:attributes]
+end
+
+
+
 
 
   def destroy 

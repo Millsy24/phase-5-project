@@ -9,7 +9,7 @@ function ShoeCard ({shoe}) {
     const navigate = useNavigate()
 
     function handleReviews () {
-        navigate(`/shoes/${shoe.id}`)
+        navigate(`/shoes-with-images/${shoe.id}`)
     }
 
 

@@ -12,6 +12,7 @@ import Review from './components/Review';
 import SplashPage from './components/SplashPage';
 import ReviewContainer from './components/ReviewContainer';
 import ShoeReviewCard from './components/ShoeReviewCard';
+import ReviewForm from './components/ReviewForm';
 
 import { Routes, Route} from 'react-router-dom'
 export const AppContext = createContext(null)
@@ -21,9 +22,12 @@ function App() {
   const [shoes, setShoes] = useState([])
 
   const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [currentUser, setCurrentUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState("")
+  
 
   const [reviews, setReviews] = useState([])
+  
+  
 
 useEffect(() => {
   fetch('/shoes').then(r => r.json()).then(data => setShoes(data))
@@ -46,11 +50,24 @@ useEffect (() => {
 },[])
 
 
+
+
 function getReviews () {
   fetch('/reviews')
   .then(r => r.json())
   .then((data) => setReviews(data))
 }
+
+ 
+  
+ const getData = () => { 
+  fetch('/shoes')
+  .then(r => r.json())
+  .then(data => setShoes(data))
+
+}
+
+
 
 
 
@@ -70,7 +87,8 @@ function getReviews () {
         <Route path = '/signup' element = {<SignUp setCurrentUser={setCurrentUser}/>}/>
         <Route path = '/login' element = {<Login setCurrentUser={setCurrentUser}/>}/>
         <Route path = '/reviews' element = {<ReviewContainer reviews = {reviews} getReviews ={getReviews}/>}/>
-        <Route path = '/shoes/:id' element = {<ShoeReviewCard/>}/>
+        <Route path = '/shoes-with-images/:id' element = {<ShoeReviewCard currentUser = {currentUser} reviews = {reviews} getData = {getData}/>}/>
+        <Route path = '/reviewform' element= {<ReviewForm/>}/>
       </Routes>
       </AppContext.Provider>
 
