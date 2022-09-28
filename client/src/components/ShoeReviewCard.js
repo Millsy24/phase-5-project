@@ -8,13 +8,13 @@ import Review from './Review'
 
 
 
-function ShoeReviewCard ({currentUser, reviews}) {
+function ShoeReviewCard ({currentUser, reviews,}) {
     
     const params = useParams()
 
     const [shoe, setShoe] = useState({}) 
     const [rating, setRating] =  useState('')
-    
+    const [change, setChange] = useState(false)
     const [content, setContent] = useState('')
     
 
@@ -27,18 +27,9 @@ function ShoeReviewCard ({currentUser, reviews}) {
 					response.json().then(data => console.log(data.errors))
 				}
 		})
-	},[])
+	},[change])
 
-    function fetchShoe() {
-        fetch(`/shoes-with-images/${params.id}`)
-			.then(response => {
-				if(response.ok) {
-					response.json().then(data => setShoe(data))
-					} else {
-					response.json().then(data => console.log(data.errors))
-				}
-		})
-    }
+    
 
 
     function handleRatingChange (e) {
@@ -69,7 +60,7 @@ function ShoeReviewCard ({currentUser, reviews}) {
             body: JSON.stringify(data)
         })
         .then(r => r.json())
-        .then(review => fetchShoe(review))
+        .then(review => setChange(!change))
         
         
         e.target.reset()
@@ -83,7 +74,7 @@ function ShoeReviewCard ({currentUser, reviews}) {
     
     
     
- const renderReviews = shoe.reviews?.map(review => <Review key = {review.id} review = {review} fetchShoe = {fetchShoe}/>)
+ const renderReviews = shoe.reviews?.map(review => <Review key = {review.id} review = {review}  setChange ={setChange} change = {change}/>)
 
 
    

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import './App.css'
 import ShoeContainer from './components/ShoeContainer';
 import ShoeCard from './components/ShoeCard';
 import { createContext } from 'react';
@@ -20,12 +19,12 @@ export const AppContext = createContext(null)
 function App() {
   const [latestPost, setLatestPost] =useState(AppContext)
   const [shoes, setShoes] = useState([])
-
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [currentUser, setCurrentUser] = useState("")
-  
-
   const [reviews, setReviews] = useState([])
+  const [change, setChange] = useState(false)
+  
+  
   
   
 
@@ -33,7 +32,7 @@ useEffect(() => {
   fetch('/shoes')
   .then(r => r.json())
   .then(data => setShoes(data))
-}, [])
+}, [change])
 
 
 useEffect(() => {
@@ -53,12 +52,6 @@ useEffect (() => {
 
 
 
-
-function getReviews () {
-  fetch('/reviews')
-  .then(r => r.json())
-  .then((data) => setReviews(data))
-}
 
  
   
@@ -84,12 +77,12 @@ function getReviews () {
       <Routes>
         <Route path = "/" element = {<SplashPage/>}/>
         <Route path ='/shoes' element={<ShoeContainer shoes = {shoes} setCurrentUser={setCurrentUser}/> }/>
-        <Route path ='/createshoe' element = {<ShoeForm/>}/>
+        <Route path ='/createshoe' element = {<ShoeForm setChange = {setChange} change ={change}/>}/>
         <Route path ='/latestshoe' element ={<LatestShoe/>}/>
         <Route path = '/signup' element = {<SignUp setCurrentUser={setCurrentUser}/>}/>
         <Route path = '/login' element = {<Login setCurrentUser={setCurrentUser}/>}/>
-        <Route path = '/reviews' element = {<ReviewContainer reviews = {reviews} getReviews ={getReviews}/>}/>
-        <Route path = '/shoes-with-images/:id' element = {<ShoeReviewCard currentUser = {currentUser} shoes = {shoes} getReviews = {setReviews}/>}/>
+        <Route path = '/reviews' element = {<ReviewContainer reviews = {reviews}  />}/>
+        <Route path = '/shoes-with-images/:id' element = {<ShoeReviewCard currentUser = {currentUser} shoes = {shoes} />}/>
         <Route path = '/reviewform' element= {<ReviewForm/>}/>
       </Routes>
       </AppContext.Provider>

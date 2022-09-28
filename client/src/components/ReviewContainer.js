@@ -5,9 +5,9 @@ import ShoeReviewCard from './ShoeReviewCard'
 
 
 
-function ReviewContainer ({reviews}) {
+function ReviewContainer ({reviews, setReviewChange, change}) {
     
-    const renderReviews = reviews.map(review => <ShoeReviewCard key = {review.id} review = {review}/>)
+    const renderReviews = reviews.map(review => <ShoeReviewCard key = {review.id} review = {review} setReviewChange ={setReviewChange} change ={change}/>)
     
     
 

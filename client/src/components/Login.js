@@ -44,10 +44,12 @@ function Login({setCurrentUser}) {
         
       
         return (
+          
+          <div className ="max-w-lg mx-auto my-10 bg-white p-8 rounded-xl shadow shadow-slate-300">
           <form  onSubmit={handleSubmit}>
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email" className ="font-semibold text-sm text-gray-600 pb-1 block">Email:</label>
             <input
-              // class="border-black border-2"
+              className ="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
               id="email-input"
               type="text"
               name="email"
@@ -56,9 +58,9 @@ function Login({setCurrentUser}) {
             />
             <br></br>
             <p></p>
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password" className ="font-semibold text-sm text-gray-600 pb-1 block">Password:</label>
             <input
-              // class="border-black border-2"
+              className = "border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
               id="password-input"
               type="password"
               name="password"
@@ -68,9 +70,12 @@ function Login({setCurrentUser}) {
             <br></br>
             <p></p>
             <button 
-            // class="border-black border-2" 
+            className = "w-full inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold capitalize text-white hover:bg-red-700 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 disabled:opacity-25 transition"
             type="submit">Submit</button>
           </form>
+          
+          </div>
+          
         );
       };
 

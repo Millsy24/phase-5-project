@@ -4,7 +4,7 @@ import {useState} from 'react'
 
 
 
-    function Review ({review, fetchShoe}) {
+    function Review ({review, setChange, change}) {
 
         const [rating, setRating] = useState('')
         const [content, setContent] = useState('')
@@ -37,7 +37,7 @@ import {useState} from 'react'
                 body:JSON.stringify(reviewData)
             })
             .then((resp) => resp.json())
-            .then(newReview => fetchShoe(newReview))
+            .then(newReview => setChange(!change))
             e.target.reset()
         }
     
@@ -48,7 +48,7 @@ import {useState} from 'react'
                 method: 'DELETE'
                 
             })
-            .then(() => fetchShoe())
+            .then(() => setChange(!change))
             
         }
 

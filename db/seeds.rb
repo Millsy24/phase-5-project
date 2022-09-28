@@ -2,7 +2,9 @@ Shoe.destroy_all
 
 Shoe.reset_pk_sequence
 
-  
+User.destroy_all
+
+User.reset_pk_sequence
 
 Review.destroy_all
 
@@ -72,7 +74,11 @@ s10.image.attach(io: File.open('app/assets/New Balance 327.webp'), filename: 'Ne
 
   
 
-u1 = User.create(name: "Lukas", email: "lukas@gmail.com", password: "lukas", dob: "12/29/2000", phone: "999-999-9999")
+u1 = User.create(name: "Lukas", email: "lukas@gmail.com", password: "lukas", dob: "05/12/2000", phone: "999-999-9999")
+u2 = User.create(name: "Mikayla", email: "mikayla@gmail.com", password: "mikayla", dob: "07/29/2000", phone: "999-999-9999")
+u3 = User.create(name: "Atlas", email: "atlas@gmail.com", password: "atlas", dob: "12/29/2000", phone: "999-999-9999")
+u4 = User.create(name: "Paris", email: "paris@gmail.com", password: "paris", dob: "12/29/2000", phone: "999-999-9999")
+u5 = User.create(name: "J cole", email: "j.cole@gmail.com", password: "jcole", dob: "12/29/2000", phone: "999-999-9999")
 
   
 

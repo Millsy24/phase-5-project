@@ -18,7 +18,7 @@ function NavBar ({setCurrentUser}) {
             method: "DELETE"
         }).then(() =>{
             setCurrentUser(null)
-            navigate('/login')
+            navigate('/')
         })
     }
 

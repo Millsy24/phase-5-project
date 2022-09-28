@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom'
 
 
 
-function ShoeForm () {
+function ShoeForm ({setChange, change}) {
     const {latestPost, setLatestPost} = useContext(AppContext)
     const navigate = useNavigate()
 
@@ -27,7 +27,7 @@ function ShoeForm () {
             body: data
         })
         .then(r => r.json())
-        .then(data => setLatestPost(data))
+        .then(data => setChange(!change))
         .catch((error) => console.log(error))
         navigate('/shoes')
     }
