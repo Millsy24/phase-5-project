@@ -32,9 +32,7 @@ function Login({setCurrentUser}) {
               });
               
             } else {
-              res.json().then((errors) => {
-                console.error(errors);
-              });
+              alert("Invalid Credintials")
             }
           });
           

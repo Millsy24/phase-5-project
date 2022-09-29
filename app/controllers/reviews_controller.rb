@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
     def destroy 
         review = Review.find(params[:id])
         if current_user == review.user
-        review.destroy
+            review.destroy
         end
     end
 

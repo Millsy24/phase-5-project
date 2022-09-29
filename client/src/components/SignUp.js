@@ -40,7 +40,7 @@ function handleSubmit (e) {
           });
         } else {
           res.json().then((errors) => {
-            console.error(errors);
+            alert(errors[0])
           });
         }
       });

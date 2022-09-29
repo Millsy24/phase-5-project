@@ -14,7 +14,7 @@ fetch('/latest').then(r => r.json()).then(data => setLatestPost(data.image_url) 
 
     return(
         <div>
-            <img src = {LatestShoe} alt ="latest" />
+            <img src = {latestPost} alt ="latest" />
 
         </div>
 

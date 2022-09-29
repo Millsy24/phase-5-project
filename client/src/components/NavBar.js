@@ -25,25 +25,39 @@ function NavBar ({setCurrentUser}) {
 
 
     return(
-        <div>
-        <p className="Link" >
-            <Link to="/signup">Signup</Link>
-        </p>
-        <p className="Link" >
-            <Link to="/shoes">View Shoes</Link>
-        </p>
-        <p className="Link" >
-            <Link to="/latestshoe">NewShoe</Link>
-        </p>
-        <p className ="Link">
-            <Link to="/login">Login</Link>
-        </p>
-        <p className ="Link">
-            <Link to="/createshoe">Sell Your Shoes</Link>
-        </p>
         
-    <button onClick = {handleLogout}>Logout</button>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+          <div>
+          <p className="Link" >
+             <Link to="/signup">Signup</Link>
+          </p>
+          <p className="Link" >
+              <Link to="/shoes">View Shoes</Link>
+          </p>
+          <p className="Link" >
+              <Link to="/latestshoe">NewShoe</Link>
+          </p>
+          <p className ="Link">
+              <Link to="/login">Login</Link>
+         </p>
+          <p className ="Link">
+              <Link to="/createshoe">Sell Your Shoes</Link>
+          </p>
+        
+      <button onClick = {handleLogout}>Logout</button>
+  </div>  
 
 
 
