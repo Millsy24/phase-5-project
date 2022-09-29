@@ -22,7 +22,7 @@ function ShoeContainer ({shoes, setCurrentUser, currentUser}) {
         
         <NavBar setCurrentUser = {setCurrentUser}/>
         
-            <div className = "flex flex-wrap -mb-4">   
+            <div className = "grid grid-cols-4 gap-4">   
             
                 {renderShoes}
         
