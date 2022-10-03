@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Andada+Pro:wght@600&family=Anek+Telugu&family=Dancing+Script:wght@500&family=Edu+VIC+WA+NT+Beginner:wght@500;700&family=Noto+Sans+Mono&family=Oswald:wght@300&display=swap');
 
 body {
   background-color: #ededed;
+  font-family: 'Noto Sans Mono', monospace;
 }

@@ -3,6 +3,7 @@ import React from "react";
 import {AppContext} from "../App"
 import { useContext } from 'react'
 import {useNavigate} from 'react-router-dom'
+import NavBar from "./NavBar";
 
 
 
@@ -37,6 +38,8 @@ function ShoeForm ({setChange, change}) {
     }
 
     return(
+        <>
+        <NavBar/>
         <div className ="max-w-lg mx-auto my-10 bg-white p-8 rounded-xl shadow shadow-slate-300">
         <h1>Sell your shoes on the best marketplace around!</h1>
         <form onSubmit = {(e) => handleSubmit(e)}>
@@ -64,6 +67,7 @@ function ShoeForm ({setChange, change}) {
             <button type ="submit" className = "w-full inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold capitalize text-white hover:bg-red-700 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 disabled:opacity-25 transition">Create Shoe</button>
         </form>
         </div>
+        </>
     )
 }
 

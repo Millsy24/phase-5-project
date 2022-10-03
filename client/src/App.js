@@ -25,6 +25,7 @@ function App() {
   const [change, setChange] = useState(false)
   const [search, setSearch] = useState("")
   const [filteredBrand, setFilteredBrand] = useState(false)
+  const [latestShoe, setLatestShoe] = useState([])
   const navigate = useNavigate()
   
   
@@ -34,7 +35,9 @@ useEffect(() => {
   fetch('/shoes')
   .then(response => {
     if(response.ok && currentUser)   {
-      response.json().then(data => setShoes(data))
+      response.json().then(data => {
+        setShoes(data)
+        setLatestShoe(data[data.length - 1])})
       } else {
       response.json().then(data => console.log(data.errors)) && navigate('/')
     }
@@ -74,7 +77,7 @@ const handleSearch = (string) => {
 
 
 
-console.log(currentUser)
+
 
 
  
@@ -89,7 +92,7 @@ console.log(currentUser)
         <Route path = "/" element = {<SplashPage/>}/>
         <Route path ='/shoes' element={<ShoeContainer shoes = {shoes} setCurrentUser={setCurrentUser} handleSearch = {handleSearch} user = {currentUser}/> }/>
         <Route path ='/createshoe' element = {<ShoeForm setChange = {setChange} change ={change}/>}/>
-        <Route path ='/latestshoe' element ={<LatestShoe/>}/>
+        <Route path ='/latestshoe' element ={<LatestShoe latestShoe = {latestShoe}/>}/>
         <Route path = '/signup' element = {<SignUp setCurrentUser={setCurrentUser}/>}/>
         <Route path = '/login' element = {<Login setCurrentUser={setCurrentUser}/>}/>
         <Route path = '/reviews' element = {<ReviewContainer reviews = {reviews}  currentUser={currentUser}/>}/>
