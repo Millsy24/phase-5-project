@@ -37,7 +37,7 @@ function ShoeCard ({shoe}) {
 					<h3 class="text-gray-900 font-semibold text-xl tracking-tight dark:text-white">{shoe.name}</h3>
 				</a>
                 <a>
-                    Rating: {avgRating}
+                    Rating: {avgRating}/5.0
                 </a>
 				
 				<div class="flex items-center justify-between">

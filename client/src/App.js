@@ -12,7 +12,7 @@ import SplashPage from './components/SplashPage';
 import ReviewContainer from './components/ReviewContainer';
 import ShoeReviewCard from './components/ShoeReviewCard';
 import ReviewForm from './components/ReviewForm';
-
+import Contact from './components/Contact';
 import { Routes, Route, useNavigate} from 'react-router-dom'
 export const AppContext = createContext(null)
 
@@ -51,6 +51,7 @@ useEffect(() => {
     if(res.ok){
       res.json().then(user => {
         setCurrentUser(user)
+        setIsAuthenticated(user)
       })
     } else {
       res.json().then(data => console.log(data))
@@ -64,16 +65,15 @@ useEffect (() => {
 
 
 
-
- 
-  
-
 const handleSearch = (string) => {
   setSearch(string)
 }
+ 
+  
+
+
 
 // const filteredShoes = shoes.filter(shoe => shoe.brand.toLowerCase().includes(search.toLocaleLowerCase()))
-
 
 
 
@@ -90,7 +90,7 @@ const handleSearch = (string) => {
       <AppContext.Provider value={{latestPost, setLatestPost}}>
       <Routes>
         <Route path = "/" element = {<SplashPage/>}/>
-        <Route path ='/shoes' element={<ShoeContainer shoes = {shoes} setCurrentUser={setCurrentUser} handleSearch = {handleSearch} user = {currentUser}/> }/>
+        <Route path ='/shoes' element={<ShoeContainer handleSearch = {handleSearch}shoes = {shoes} setCurrentUser={setCurrentUser}  user = {currentUser}/> }/>
         <Route path ='/createshoe' element = {<ShoeForm setChange = {setChange} change ={change}/>}/>
         <Route path ='/latestshoe' element ={<LatestShoe latestShoe = {latestShoe}/>}/>
         <Route path = '/signup' element = {<SignUp setCurrentUser={setCurrentUser}/>}/>
@@ -98,6 +98,7 @@ const handleSearch = (string) => {
         <Route path = '/reviews' element = {<ReviewContainer reviews = {reviews}  currentUser={currentUser}/>}/>
         <Route path = '/shoes-with-images/:id' element = {<ShoeReviewCard currentUser = {currentUser} shoes = {shoes} />}/>
         <Route path = '/reviewform' element= {<ReviewForm/>}/>
+        <Route path = '/contact' element = {<Contact/>}/>
       </Routes>
       </AppContext.Provider>
 
