@@ -95,11 +95,12 @@ import {useState} from 'react'
         return(
             <>
             <hr className = "border-1 border-gray-900 mb-2"></hr>
-            <>{renderUserName}</>
-            <div className = "">
+            
+            <div className = "bg-white rounded-lg m-4">
 
                 
-                
+            <>{renderUserName}</>
+            <br></br>
                 
                 <div className ="inline-flex"> <label className = "font-semibold text-m text-gray-600 pb-1 ml-2">Rating:</label> <p className="ml-3">{review.rating}/5⭐'s</p> </div>
                 <div className = "mt-3"> <label className = "font-semibold text-m text-gray-600 pb-1 m-2">Review:</label> <p className = "mb-4 mt-4 ml-4">{review.content}</p> </div>

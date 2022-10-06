@@ -5,12 +5,12 @@ import {Link, useNavigate} from 'react-router-dom'
 
 
 
-function NavBar ({setCurrentUser, currentUser, isLoggedIn, setIsLoggedIn}) {
+function NavBar ({setCurrentUser, currentUser, isLoggedIn, setIsLoggedIn, cart}) {
 	
     const navigate = useNavigate()
 
 	
-   
+   console.log(cart.length)
 
 	console.log(isLoggedIn)
 
@@ -24,7 +24,9 @@ function NavBar ({setCurrentUser, currentUser, isLoggedIn, setIsLoggedIn}) {
         })
     }
 
-	
+	function handleCart () {
+		navigate('/cart')
+	}
 
     return(
         <body className="bg-blue-500">
@@ -60,6 +62,11 @@ function NavBar ({setCurrentUser, currentUser, isLoggedIn, setIsLoggedIn}) {
 			
 			<li><a className="text-sm text-black-400 hover:text-red-600" href="/contact">Contact</a></li>
 		</ul>
+		{currentUser ? <p className = "absolute right-0 mr-32 border border-red-600 rounded-full w-4 h-4 text-xs bg-red-600 text-white text-center ml-2">{cart.length}</p> : null}
+		{currentUser ? <svg onClick ={handleCart} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 absolute right-0 mr-36 cursor-pointer">
+  			<path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+		</svg>: null}
+
 
 		
 		{isLoggedIn ? <button onClick = {handleLogout}class="hidden lg:inline-block py-2 px-6 bg-red-600 hover:bg-red-700 text-sm text-white font-bold rounded-xl transition duration-200 cursor-pointer">Logout</button>: null}

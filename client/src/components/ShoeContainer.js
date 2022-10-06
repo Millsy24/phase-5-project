@@ -6,7 +6,7 @@ import Pagination from './Pagination'
 
 
 
-function ShoeContainer ({shoes, setCurrentUser, postsPerPage, setCurrentPage, totalPosts}) {
+function ShoeContainer ({shoes, setCurrentUser, postsPerPage, setCurrentPage, totalPosts, addToCart}) {
     const [search, setSearch] = useState('')
     
     const filteredShoes = shoes?.filter(sneaker => {
@@ -18,7 +18,7 @@ function ShoeContainer ({shoes, setCurrentUser, postsPerPage, setCurrentPage, to
         }
     })
 
-    const renderShoes = filteredShoes?.map(shoe => <ShoeCard key = {shoe.id} shoe = {shoe}/>)
+    const renderShoes = filteredShoes?.map(shoe => <ShoeCard key = {shoe.id} shoe = {shoe} addToCart ={addToCart}/>)
 
     
     
