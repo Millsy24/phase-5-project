@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Review from './Review'
 import {useState} from 'react'
 import ShoeReviewCard from './ShoeReviewCard'
 
 
 
-function ReviewContainer ({reviews, setReviewChange, change}) {
-    
-    const renderReviews = reviews.map(review => <ShoeReviewCard key = {review.id} review = {review} setReviewChange ={setReviewChange} change ={change}/>)
+function ReviewContainer ({ setReviewChange, change, currentUser}) {
+    const [reviews, setReviews] = useState([])
+   useEffect(() => {
+    fetch('/reviews')
+    .then(r => r.json())
+    .then(data => setReviews(data))
+   },[])
+
+console.log(reviews)
+
+
+    const renderReviews = reviews.map(review => <ShoeReviewCard key = {review.id} review = {review} setReviewChange ={setReviewChange} change ={change} currentUser = {currentUser}/>)
     
     
 

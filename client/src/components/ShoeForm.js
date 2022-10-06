@@ -39,9 +39,9 @@ function ShoeForm ({setChange, change}) {
 
     return(
         <>
-        <NavBar/>
+        
         <div className ="max-w-lg mx-auto my-10 bg-white p-8 rounded-xl shadow shadow-slate-300">
-        <h1>Sell your shoes on the best marketplace around!</h1>
+        <h1 className = "text-center">Sell your shoes</h1>
         <form onSubmit = {(e) => handleSubmit(e)}>
             <label htmlFor="name" className ="font-semibold text-sm text-gray-600 pb-1 block">Name:</label>
             <input type = "text" name = "name" id = "title" className ="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"/>
@@ -59,7 +59,7 @@ function ShoeForm ({setChange, change}) {
             <input type = "text" name ="color" id ="color" className ="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"/>
 
             <label htmlFor="image" className ="font-semibold text-sm text-gray-600 pb-1 block">Image:</label>
-            <input type = "file" name ="image" id ="image" className = "block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"/>
+            <input type = "file" name ="image" id ="image" />
             <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG, JPG or GIF (MAX. 800x400px).</p>
 
             

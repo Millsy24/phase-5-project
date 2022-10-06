@@ -42,8 +42,10 @@ function Login({setCurrentUser}) {
         
       
         return (
-          
-          <div className ="max-w-lg mx-auto my-10 bg-white p-8 rounded-xl shadow shadow-slate-300">
+          // max-w-lg mx-auto my-10 bg-white p-8 rounded-xl shadow shadow-slate-300
+          <>
+          <h2 class="text-2xl font-bold mb-20 text-center mt-24"><p className = "mb-2 text-red-600 text-2xl">Legacy Sneakers</p> The best place to shop for the <u className = "text-red-600">trendiest</u> shoe brands</h2>
+          <div className ="max-w-lg mx-auto my-10 bg-white p-8 rounded-xl shadow shadow-slate-300 mt-20 "> 
           <form  onSubmit={handleSubmit}>
             <label htmlFor="email" className ="font-semibold text-sm text-gray-600 pb-1 block">Email:</label>
             <input
@@ -73,6 +75,52 @@ function Login({setCurrentUser}) {
           </form>
           
           </div>
+
+<div class="absolute bottom-0 my-0 px-6 mx-auto mb-5">
+  
+  
+<section class=" text-gray-800 text-center">
+  
+  
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-center">
+    <div class="mb-0 lg:mb-0">
+      <img
+        src="https://www.transparentpng.com/thumb/nike-logo/BC26mv-nike-logo-free-cut-out.png"
+        className="px-6 md:px-20 bg-opacity-100"
+        alt="Nike Logo"
+      />
+    </div>
+
+    <div class="mb-0 lg:mb-0">
+      <img
+        src="https://www.transparentpng.com/thumb/adidas-logo/hd-adidas-logo-clipart-3.png"
+        class="img-fluid grayscale px-6 md:px-20"
+        alt="Adidas Logo"
+      />
+    </div>
+
+    <div class="mb-0 lg:mb-0">
+      <img
+        src="https://www.transparentpng.com/thumb/michael-jordan/clipart-michael-jordan-photos-png-16.png"
+        class="img-fluid grayscale px-6 md:px-20"
+        alt="Jordan Logo"
+      />
+    </div>
+
+    <div class="mb-0 lg:mb-0">
+      <img
+        src="https://www.transparentpng.com/thumb/puma-logo/1PCkOv-puma-logo-free-cut-out.png"
+        class="img-fluid grayscale px-6 md:px-20"
+        alt="Puma Logo"
+      />
+    </div>
+  </div>
+</section>
+
+
+</div>
+</>
           
         );
       };

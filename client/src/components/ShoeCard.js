@@ -28,7 +28,7 @@ function ShoeCard ({shoe}) {
         <div class="max-w-2xl mx-auto">
 
 
-	<div class="bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
+	<div onClick = {handleReviews} class="bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700  hover:shadow-2xl transition duration-300 ease-in-out">
 		<a href="#">
 			<img class="rounded-t-lg p-8" src={shoe.image_url} alt="product image"/>
         </a>
@@ -36,15 +36,13 @@ function ShoeCard ({shoe}) {
 				<a href="#">
 					<h3 class="text-gray-900 font-semibold text-xl tracking-tight dark:text-white">{shoe.name}</h3>
 				</a>
-                <a>
-                    Rating: {avgRating}/5.0
-                </a>
+                <a className = "cursor-pointer"onClick ={handleReviews}>{avgRating}/5.0 </a><a className ="cursor-pointer">⭐</a>
 				
-				<div class="flex items-center justify-between">
+				<div onClick ={handleReviews} class="flex items-center justify-between">
                     
 					<span class="text-3xl font-bold text-gray-900 dark:text-white">${shoe.price}</span>
-					<a onClick={handleReviews}
-						class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer">Reviews
+					<a 
+						class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 cursor-pointer">Add To Cart
 						</a>
 				</div>
 			</div>

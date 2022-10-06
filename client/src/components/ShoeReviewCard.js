@@ -74,7 +74,7 @@ function ShoeReviewCard ({currentUser, reviews,}) {
     
     
     
- const renderReviews = shoe.reviews?.map(review => <Review key = {review.id} review = {review}  setChange ={setChange} change = {change}/>)
+ const renderReviews = shoe.reviews?.map(review => <Review key = {review.id} review = {review}  setChange ={setChange} change = {change} currentUser = {currentUser}/>)
 
 
    
@@ -82,19 +82,38 @@ function ShoeReviewCard ({currentUser, reviews,}) {
 
     return(
         <>
-            <div>
-                <img src = {shoe.image_url} />
-                <h1>{shoe.name}</h1>
-                <h3>{shoe.price}</h3>
-                <h3>{shoe.brand}</h3>
-                <h4>{shoe.color}</h4>
-            </div>
+            <div class="grid place-items-center">
 
-            <div>
+
+<div class="bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 mb-5">
+    <a href="#">
+        <img class="rounded-t-lg p-8" src={shoe.image_url} alt="product image"/>
+    </a>
+        <div class="px-5 pb-5">
+            
+            <h3 className="text-gray-900 font-semibold text-xl tracking-tight dark:text-white">{shoe.name}</h3>
+            <p >Brand: {shoe.brand}</p>
+            <p >Color: {shoe.color}</p>
+            
+
+            <p className = "text-2xl font-bold text-gray-900 dark:text-white">
+                ${shoe.price}
+            </p>
+            
+            
+        </div>
+</div>
+</div>
+            <hr className = "border-1 border-gray-900 mt-5"></hr>
+            
+
+            <div className ="mt-3">
                 <form onSubmit ={handleSubmit}>
-                    <input min = "1" max = "5" type ="number" placeholder = "rating" onChange = {handleRatingChange}></input>
-                    <input type = "text" placeholder= "Tell us what you think!" onChange = {handleContentChange}></input>
-                    <button type = "submit">Submit Review</button>
+                    <label className = "font-semibold text-sm text-gray-600 pb-1 block ml-2">Your Rating:</label>
+                    <input className = "w-34 text-center ml-3"min = "1" max = "5" type ="number"onChange = {handleRatingChange}></input><a>/5⭐'s</a>
+                    <label className = "font-semibold text-sm text-gray-600 pb-1 block mt-2 ml-2">Write a Review:</label>
+                    <textarea id="message" rows="4" class="ml-2 block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your message..." onChange={handleContentChange}></textarea>
+                    <button type = "submit" className = "h-8 px-4 m-2 text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-800 ">Submit Review</button>
                 </form>
             </div>
 

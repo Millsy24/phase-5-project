@@ -63,6 +63,7 @@ function handleSubmit (e) {
 
 
     return(
+      <>
       <div className ="max-w-lg mx-auto my-10 bg-white p-8 rounded-xl shadow shadow-slate-300">
         <form onSubmit = {handleSubmit}>
         <label htmlFor="name" className ="font-semibold text-sm text-gray-600 pb-1 block">Username:</label>
@@ -80,30 +81,54 @@ function handleSubmit (e) {
     
     </div>
 
-        // <form onSubmit = {handleSubmit}>
-        //     <label htmlFor = "Username">Username:</label>
-        //     <input  type = "text" name = "name" value = {name} onChange = {(e) =>setName(e.target.value)}/>
+    <div class="absolute bottom-0 my-0 px-6 mx-auto mb-5">
+  
+  
+  <section class=" text-gray-800 text-center">
+    
+    
 
-        //     <label htmlFor = "Password">Password:</label>
-        //     <input  type = "text" name = "password" value = {password} onChange = {(e) =>setPassword(e.target.value)}/>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-center">
+      <div class="mb-0 lg:mb-0">
+        <img
+          src="https://www.transparentpng.com/thumb/nike-logo/BC26mv-nike-logo-free-cut-out.png"
+          className="px-6 md:px-20 bg-opacity-100"
+          alt="Nike Logo"
+        />
+      </div>
 
-        //     <label htmlFor = "Email">Email:</label>
-        //     <input  type = "text" name = "email" value = {email} onChange = {(e) =>setEmail(e.target.value)}/>
+      <div class="mb-0 lg:mb-0">
+        <img
+          src="https://www.transparentpng.com/thumb/adidas-logo/hd-adidas-logo-clipart-3.png"
+          class="img-fluid grayscale px-6 md:px-20"
+          alt="Adidas Logo"
+        />
+      </div>
 
-        //     <label htmlFor = "dob">Date of Birth:</label>
-        //     <input  type = "text" name = "dob" value = {dob} onChange = {(e) =>setDob(e.target.value)}/>
+      <div class="mb-0 lg:mb-0">
+        <img
+          src="https://www.transparentpng.com/thumb/michael-jordan/clipart-michael-jordan-photos-png-16.png"
+          class="img-fluid grayscale px-6 md:px-20"
+          alt="Jordan Logo"
+        />
+      </div>
 
-        //     <label htmlFor = "Phone">Phone:</label>
-        //     <input  type = "text" name = "phone" value = {phone} onChange = {(e) =>setPhone(e.target.value)}/>
+      <div class="mb-0 lg:mb-0">
+        <img
+          src="https://www.transparentpng.com/thumb/puma-logo/1PCkOv-puma-logo-free-cut-out.png"
+          class="img-fluid grayscale px-6 md:px-20"
+          alt="Puma Logo"
+        />
+      </div>
+    </div>
+  </section>
+  
+  
+</div>
 
+        
 
-        //     <button type="submit">Sign Up!</button>
-
-
-
-
-
-        // </form>
+</>
 
 
     )
