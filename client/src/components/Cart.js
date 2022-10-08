@@ -9,7 +9,9 @@ function Cart ({renderCart, clearCart, cart, getTotal}) {
         localStorage.setItem('cart', JSON.stringify(cart))
       },[cart])
    
-
+      function handleClick () {
+        alert('Checkout coming soon!')
+      }
 
 
     return (
@@ -25,7 +27,7 @@ function Cart ({renderCart, clearCart, cart, getTotal}) {
         
         </div>
         <br></br>
-        {cart.length > 0 ? <button className ="ml-3 h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-800 absolute">Checkout</button> : null }
+        {cart.length > 0 ? <button className ="ml-3 h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-800 absolute" onClick = {handleClick}>Checkout</button> : null }
         <br></br>
         {cart.length > 0 ? <button className = "m-3 h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-800 absolute"onClick = {clearCart}>Clear Cart</button> : null}
         

@@ -17,6 +17,7 @@ import { Routes, Route, useNavigate} from 'react-router-dom'
 import Pagination from './components/Pagination';
 import NavBar from './components/NavBar';
 import Cart from './components/Cart';
+
 export const AppContext = createContext(null)
 
 const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
